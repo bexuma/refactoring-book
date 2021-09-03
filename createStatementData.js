@@ -1,4 +1,4 @@
-export default function createStatementData (invoice, plays) {
+export default function createStatementData(invoice, plays) {
   const statementData = {};
   statementData.customer = invoice.customer;
   statementData.performances = invoice.performances.map(enrichPerformance);
@@ -15,7 +15,7 @@ export default function createStatementData (invoice, plays) {
     return result;
   }
 
-  function playFor(aPerformance)  {
+  function playFor(aPerformance) {
     return plays[aPerformance.playID];
   }
 

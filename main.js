@@ -48,6 +48,14 @@ function statement (invoice, plays) {
     return result;
   }
 
+  function haha() {
+    let totalAmount = 0;
+    for (let perf of invoice.performances) {
+      totalAmount += amountFor(perf);
+    }
+    return totalAmount;
+  }
+
   let result = `Statement for ${invoice.customer}\n`;
   
   for (let perf of invoice.performances) {
@@ -55,10 +63,7 @@ function statement (invoice, plays) {
     result += `  ${playFor(perf).name}: ${usd(amountFor(perf))} (${perf.audience} seats)\n`;
   }
 
-  let totalAmount = 0;
-  for (let perf of invoice.performances) {
-    totalAmount += amountFor(perf);
-  }
+  let totalAmount = haha();
   result += `Amount owed is ${usd(totalAmount)}\n`;
   result += `You earned ${totalVolumeCredits()} credits\n`;
   return result;

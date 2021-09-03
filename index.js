@@ -1,5 +1,5 @@
-var invoices = require('./invoices.json');
-var plays = require('./plays.json');
-var statement = require('./main.js');
+import invoices from './invoices.json';
+import plays from './plays.json';
+import statement from './main.js';
 
 console.log(statement(invoices[0], plays))

@@ -57,4 +57,4 @@ function createStatementData (invoice, plays) {
   }
 }
 
-module.exports = createStatementData;
+export default createStatementData;

@@ -1,4 +1,4 @@
-var createStatementData = require('./createStatementData.js');
+import createStatementData from './createStatementData.js';
 
 function statement (invoice, plays) {
   return renderPlainText(createStatementData(invoice, plays));
@@ -22,4 +22,4 @@ function renderPlainText (data) {
   }
 }
 
-module.exports = statement;
+export default statement;

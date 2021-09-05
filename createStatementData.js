@@ -21,7 +21,7 @@ class PerformanceCalculator {
         result += 300 * this.performance.audience;
         break;
       default:
-          throw new Error(`unknown type: ${this.play.type}`);
+        throw new Error(`unknown type: ${this.play.type}`);
     }
     return result;
   }
@@ -33,6 +33,10 @@ class PerformanceCalculator {
     return result;
   }
 }
+
+class TragedyCalculator extends PerformanceCalculator {}
+
+class ComedyCalculator extends PerformanceCalculator {}
 
 export default function createStatementData(invoice, plays) {
   const result = {};
@@ -53,7 +57,15 @@ export default function createStatementData(invoice, plays) {
   }
 
   function createPerformanceCalculator(aPerformance, aPlay) {
-    return new PerformanceCalculator(aPerformance, aPlay);
+    
+    switch (aPlay.type) {
+      case "tragedy":
+        return new TragedyCalculator(aPerformance, aPlay);
+      case "comedy":
+        return new ComedyCalculator(aPerformance, aPlay);
+      default:
+        throw new Error(`unknown type: ${aPlay.type}`);
+    }
   }
   
   function playFor(aPerformance) {
